@@ -37,6 +37,14 @@ mongoose.connect(URI)
 // Routes
 app.use("/api/v1", router);
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "API connected successfully! 🚀 Server is running on Vercel."
+  });
+});
+
+
 // 404 Route
 app.use((req, res) => {
   res.status(404).json({ status: "fail", data: "Not Found" });
